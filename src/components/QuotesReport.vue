@@ -29,15 +29,17 @@
 
 <script>
 import quoteServices from '@/services/QuotesService'
+import Urls from '@/config.js'
 export default {
     mounted(){
+        //this.$store.dispatch('functionName',this.$route.name)
         console.log(this.$route)
 
        if (this.$route.name === 'pendingQuotes') {
-        this.loadPendingData() 
+        this.loadData(Urls.pendingQuotesUrl) 
       }
       else{
-          this.loadSoldData()
+          this.loadData(Urls.soldQuotesUrl) 
       }
     
       
@@ -72,18 +74,8 @@ export default {
 
     }),
     methods: {
-        loadPendingData() {
-            quoteServices.getPendingJson()
-            .then(response => {
-                this.primaryItems = response.data
-                console.log(response)
-            })
-            .catch(error => {
-                console.log(error) 
-            })
-        },
-         loadSoldData() {
-            quoteServices.getSoldJson()
+        loadData(url) {
+            quoteServices.getRequest(url)
             .then(response => {
                 this.primaryItems = response.data
                 console.log(response)
