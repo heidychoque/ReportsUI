@@ -1,5 +1,5 @@
 const Urls ={
-    pendingQuotesUrl: 'http://192.168.137.1:5000/crm-api/quotes/pending',
-    soldQuotesUrl: 'http://192.168.137.1:5000/crm-api/quotes/sold'
+    pendingQuotesUrl: 'http://localhost:5002/crm-api/quotes/pending',
+    soldQuotesUrl: 'http://localhost:5002/crm-api/quotes/sold'
 }
 export default Urls;
